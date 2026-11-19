@@ -1,7 +1,8 @@
 /* VENDORA service worker: app-shell caching + notification clicks.
    Live data (Supabase) is never cached, so orders and payments are always fresh. */
-const V = 'vendora-v1.1.0';
-const SHELL = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
+const V = 'vendora-v1.2.0';
+const SHELL = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './css/app.css?v=1.2.0',
+  './js/core.js?v=1.2.0', './js/public.js?v=1.2.0', './js/auth.js?v=1.2.0', './js/vendor.js?v=1.2.0', './js/admin.js?v=1.2.0', './js/play.js?v=1.2.0', './js/notify.js?v=1.2.0', './js/boot.js?v=1.2.0'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)));
